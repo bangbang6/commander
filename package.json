@@ -1,0 +1,16 @@
+{
+  "name": "mac-mw-cli-test2",
+  "version": "1.0.5",
+  "description": "",
+  "bin": {
+    "mac-mw-cli-test2": "bin/index.js"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "commander": "^6.2.1"
+  }
+}
