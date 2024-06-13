@@ -29,17 +29,19 @@ cp.execFile(
 );
 /** exec exfile的底层函数 没有回调功能 返回子进程 */
 /** 为什么不是npm install 写在第一个地方 因为原理是找到npm的执行文件 npm install 不是可执行文件 */
-// const child = cp.spawn("npm", ["install"], {
-//   cwd: process.cwd(),
-// });
+const child0 = cp.spawn("npm", ["install"], {
+  cwd: process.cwd(),
+  //   stdio:'pipe' //默认是pipe管道 进行子进程和父进程
+  stdio: "inherit", //!inherit 子进程和父进程直接链接 控制台会直接进行npm install的输出 相当于我们直接在父进程执行了npm install  不用stdout监听了
+});
 // /** 监听回调来拿到回调数据 流式的方式*/
-// child.stdout.on("data", (chunk) => {
+// child0.stdout.on("data", (chunk) => {
 //   log("out", chunk.toString());
 // });
-// child.stderr.on("data", (chunk) => {
+// child0.stderr.on("data", (chunk) => {
 //   log("err", chunk.toString());
 // });
-// console.log(child.pid, process.pid);
+console.log(child0.pid, process.pid);
 
 /** fork  用node执行引入的文件  */
 /** 主进程通过child来发送和监听消息 子进程通过process来发送和监听消息 */
