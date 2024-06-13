@@ -41,6 +41,13 @@ const child0 = cp.spawn("npm", ["install"], {
 // child0.stderr.on("data", (chunk) => {
 //   log("err", chunk.toString());
 // });
+/** inherit 的成功和失败回调 */
+child0.on("err", (err) => {
+  log.err(e.message);
+});
+child0.on("exit", (data) => {
+  log.err(data);
+});
 console.log(child0.pid, process.pid);
 
 /** fork  用node执行引入的文件  */
