@@ -6,7 +6,9 @@ const pkg = require("../package.json");
 const program0 = commander.program;
 // 自己手动初始化脚手架例
 const program = new commander.Command();
-require("./process/index");
+// require("./process/index");
+require("./inquirer/index");
+return;
 program
   .name(Object.keys(pkg.bin)[0])
   .usage("<command> [options]")

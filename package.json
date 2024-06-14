@@ -17,10 +17,11 @@
     "commander": "^6.2.1",
     "dotenv": "^8.2.0",
     "import-local": "^3.1.0",
-    "minimist": "^1.2.5", 
+    "minimist": "^1.2.5",
     "npmlog": "^7.0.1",
     "path-exists": "^4.0.0",
     "root-check": "^1.0.0",
+    "inquirer": "^7.3.3",
     "semver": "^7.6.2"
   }
 }

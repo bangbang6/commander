@@ -7,7 +7,7 @@ const path = require("path");
 
 /** 运行一个命令 主要执行shell */
 cp.exec(
-  "ls -al|grep node_modules",
+  "ls -al",
   {
     cwd: process.cwd(), //cwd()表示当前执行路径 即终端运行命令的路径
   },
@@ -17,8 +17,8 @@ cp.exec(
     // log(stderr);
   }
 );
-/** 运行一个文件 */
-cp.execFile(
+/** 运行一个文件  这个方法就通用 因为有进程的返回值 可以监听各种事件函数*/
+const child00 = cp.execFile(
   path.resolve(__dirname, "test.shell"),
   ["-al"],
   function (err, stdout, stderr) {
@@ -64,7 +64,7 @@ child.on("message", (message) => {
 });
 
 /** 还有对应的同步方法 execSync/execFileSync/spawnSync 用法同理 */
-const ret = cp.execSync("ls -al|grep node_modules"); //拿到一个Buffer
+const ret = cp.execSync("ls -al"); //拿到一个Buffer
 log(ret.toString());
 const ret2 = cp.execFileSync("ls", ["-al"]); //拿到一个Buffer
 log(ret2.toString());
