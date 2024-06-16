@@ -1,0 +1,15 @@
+<!-- <% %> js脚本 -->
+<% if(user){ %>
+    <div><%= user.name %></div>
+<%} %>
+<% for(var i = 0;i<10;i++){ %>
+    <div><%= user.name %></div>
+<%} %>
+
+
+
+<% if(user){ -%>
+    <%# 注释 -%>
+    <div><%- user.nickName -%></div>
+<%} -%>
+<%- include('./footer.html',{user}) %>
